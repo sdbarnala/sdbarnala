@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BA 3rd Sem (SD College Barnala)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      color: #333;
+    }
+    header {
+      background-color: #004080;
+      color: white;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    header img {
+      height: 70px;
+      border-radius: 10px;
+    }
+    header .handler-info {
+      text-align: right;
+      font-size: 14px;
+    }
+
+    .main {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+      gap: 20px;
+    }
+    .updates, .books {
+      flex: 1;
+      min-width: 300px;
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .updates marquee {
+      height: 200px;
+    }
+
+    .books input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .books ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .books li a {
+      display: block;
+      padding: 10px;
+      background-color: #e6f0ff;
+      margin: 5px 0;
+      text-decoration: none;
+      border-radius: 5px;
+      color: #004080;
+    }
+
+    .college-photos {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .college-photos img {
+      height: 150px;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      header .handler-info {
+        text-align: left;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="sukhpal.jpg" alt="Site Handler Mr.Sukhpal Singh">
+    <div class="handler-info">
+      <h2>BA 3rd Sem (SD College Barnala)</h2>
+      <p>Site Handler: <strong>Mr. Sukhpal Singh</strong></p>
+    </div>
+  </header>
+
+  <div class="main">
+    <!-- New Updates Section -->
+    <div class="updates">
+      <h3>New Updates</h3>
+      <marquee direction="up" scrollamount="2" height="150px">
+        <p><a href="#">Update 1: New Timetable Released</a></p>
+        <p><a href="#">Update 2: Practical Date Announced</a></p>
+        <p><a href="#">Update 3: Last Date for Assignment</a></p>
+        <p><a href="#">Update 4: New Book Uploaded</a></p>
+      </marquee>
+    </div>
+
+    <!-- Books Section -->
+    <div class="books">
+      <h3>Books Section</h3>
+      <input type="text" id="searchBox" placeholder="Search book...">
+      <ul id="bookList">
+        <li><a href="book1.pdf" target="_blank">English Book</a></li>
+        <li><a href="book2.pdf" target="_blank">History Book</a></li>
+        <li><a href="book3.pdf" target="_blank">Political Science Book</a></li>
+        <li><a href="book4.pdf" target="_blank">Punjabi Book</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- College Photos Section -->
+  <div class="college-photos">
+    <h3>Our College Gallery</h3>
+    <img src="sdbarnala1.jpg" alt="College Photo 1">
+    <img src="sdbarnala.jpeg" alt="College Photo 2">
+    <img src="sdbarnala3.jpeg" alt="College Photo 3">
+  </div>
+
+  <!-- JavaScript for Book Search -->
+  <script>
+    const searchBox = document.getElementById('searchBox');
+    const bookList = document.getElementById('bookList');
+    searchBox.addEventListener('input', () => {
+      const filter = searchBox.value.toLowerCase();
+      const books = bookList.getElementsByTagName('li');
+      Array.from(books).forEach(book => {
+        const text = book.textContent.toLowerCase();
+        book.style.display = text.includes(filter) ? '' : 'none';
+      });
+    });
+  </script>
+
+</body>
+</html>
